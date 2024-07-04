@@ -36,6 +36,11 @@
             "swatch_shape": "circle"
           }
         },
+        "discount_pLheFG": {
+          "type": "discount",
+          "settings": {
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
@@ -58,11 +63,6 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "discount_pLheFG": {
-          "type": "discount",
-          "settings": {
-          }
         }
       },
       "block_order": [
@@ -70,11 +70,11 @@
         "title",
         "price",
         "variant_picker",
+        "discount_pLheFG",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share",
-        "discount_pLheFG"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
