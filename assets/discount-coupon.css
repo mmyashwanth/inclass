@@ -28,7 +28,7 @@
 .discount-coupon-card p {
   font-size: 15px;
 }
-.coupon-row {
+.discount-coupon-row {
   display: flex;
   align-items: center;
   margin: 25px auto;
