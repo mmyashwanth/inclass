@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
 }
-.coupon-card {
+.discount-coupon-card {
   background: linear-gradient(135deg, #7158fe, #9d4de6);
   color: #fff;
   text-align: center;
@@ -20,12 +20,12 @@
   border-radius: 8px;
   margin-bottom: 20px;
 }
-.coupon-card h3 {
+.discount-coupon-card h3 {
   font-size: 28px;
   font-weight: 400;
   line-height: 40px;
 }
-.coupon-card p {
+.discount-coupon-card p {
   font-size: 15px;
 }
 .coupon-row {
