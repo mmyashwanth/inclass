@@ -9,7 +9,7 @@
   background: linear-gradient(135deg, #7158fe, #9d4de6);
   color: #fff;
   text-align: center;
-  padding: 40px 40px;
+  padding: 20px 40px;
   border-radius: 15px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
   position: relative;
@@ -45,8 +45,8 @@
   color: #7158fe;
   cursor: pointer;
 }
-.discount-coupon-car .discount-coupon-circle1,
-.discount-coupon-car .discount-coupon-circle2 {
+.discount-coupon-card .discount-coupon-circle1,
+.discount-coupon-card .discount-coupon-circle2 {
   background: red;
   width: 50px;
   height: 50px;
