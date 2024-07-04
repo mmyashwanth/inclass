@@ -45,8 +45,8 @@
   color: #7158fe;
   cursor: pointer;
 }
-.discount-coupon-car .discount-coupon-card-circle1,
-.discount-coupon-car .discount-coupon-card-circle2 {
+.discount-coupon-car .discount-coupon-circle1,
+.discount-coupon-car .discount-coupon-circle2 {
   background: red;
   width: 50px;
   height: 50px;
@@ -57,9 +57,9 @@
   z-index: 1;
   display: block;
 }
-.discount-coupon-card-circle1 {
+.discount-coupon-circle1 {
   left: -25px;
 }
-.discount-coupon-card-circle2 {
+.discount-coupon-circle2 {
   right: -25px;
 }
