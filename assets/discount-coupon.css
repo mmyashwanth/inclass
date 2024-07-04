@@ -48,18 +48,18 @@
   width: 20%;
   border-right: 2px dashed rgba(0, 0, 0, 0.13);
 }
-.left div {
+.discount-coupon-left div {
   transform: rotate(-90deg);
   white-space: nowrap;
   font-weight: bold;
 }
 
-.center {
+.discount-coupon-center {
   flex-grow: 1;
   text-align: center;
 }
 
-.right {
+.discount-coupon-right {
   width: 120px;
   background-image: radial-gradient(
     circle at 100% 50%,
@@ -67,14 +67,14 @@
     #fff 26px
   );
 }
-.right div {
+.discount-coupon-right div {
   font-family: "Libre Barcode 128 Text", cursive;
   font-size: 2.5rem;
   font-weight: 400;
   transform: rotate(-90deg);
 }
 
-.center h2 {
+.discount-coupon-center h2 {
   background: #000;
   color: gold;
   padding: 0 10px;
@@ -82,10 +82,10 @@
   white-space: nowrap;
 }
 
-.center h3 {
+.discount-coupon-center h3 {
   font-size: 2.15rem;
 }
-.center small {
+.discount-coupon-center small {
   font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -96,10 +96,10 @@
     display: grid;
     grid-template-columns: 1fr;
   }
-  .left div {
+  .discount-coupon-left div {
     transform: rotate(0deg);
   }
-  .right div {
+  .discount-coupon-right div {
     transform: rotate(0deg);
   }
 }
