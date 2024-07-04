@@ -1408,7 +1408,10 @@ class VariantSelects extends HTMLElement {
           `price-${this.dataset.section}`
         );
         const discountCoupon = html.getElementById("cpnCode");
-        console.log(discountCoupon);
+        const destinationDiscountCoupon = destination.getElementById("cpnCode");
+
+        destinationDiscountCoupon.textContent = discountCoupon.textContent;
+
         const source = html.getElementById(
           `price-${
             this.dataset.originalSection
