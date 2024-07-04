@@ -131,7 +131,7 @@
                 </div>
               {%- when 'discount' -%}
                   {% if product.selected_or_first_available_variant.metafields.custom.discount_coupon != blank %}
-                      {% render 'discount-coupon', coupon: product.selected_or_first_available_variant.metafields.custom.discount_coupon  %}
+                      {% render 'discount-coupon', product: product  %}
                     {% endif %}
               {%- when 'inventory' -%}
                 <p
