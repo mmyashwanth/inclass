@@ -54,6 +54,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
 }
 .circle1 {
   left: -25px;
