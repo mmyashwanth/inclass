@@ -1122,6 +1122,7 @@ class VariantSelects extends HTMLElement {
   }
 
   onVariantChange(event) {
+    this.updateOptions();
     this.updateMasterId();
     this.updateSelectedSwatchValue(event);
     this.toggleAddButton(true, "", false);
@@ -1406,8 +1407,6 @@ class VariantSelects extends HTMLElement {
         const destination = document.getElementById(
           `price-${this.dataset.section}`
         );
-
-        console.log(html);
         const source = html.getElementById(
           `price-${
             this.dataset.originalSection
