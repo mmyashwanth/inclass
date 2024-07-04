@@ -1407,6 +1407,7 @@ class VariantSelects extends HTMLElement {
         const destination = document.getElementById(
           `price-${this.dataset.section}`
         );
+        console.log(html);
         const source = html.getElementById(
           `price-${
             this.dataset.originalSection
