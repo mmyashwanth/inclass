@@ -130,7 +130,7 @@
                   {%- endform -%}
                 </div>
               {%- when 'discount' -%}
-                  {% render 'discount-coupon' %}
+                  {% render 'discount-coupon', coupon: product.metafields.custom.discount_coupon  %}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
