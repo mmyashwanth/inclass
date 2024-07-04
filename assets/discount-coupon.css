@@ -9,6 +9,7 @@
 
 .discount-coupon-card {
   background: linear-gradient(135deg, #b5941050, #b59410);
+  width: 100%;
   color: #fff;
   text-align: center;
   padding: 20px 40px;
