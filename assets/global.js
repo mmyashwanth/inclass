@@ -1418,11 +1418,9 @@ class VariantSelects extends HTMLElement {
         if (discountCoupon) {
           desstinationDiscountCoupon.textContent = discountCoupon.textContent;
         } else {
-          console.log(
-            document.getElementById(
-              "shopify-section-template--22952857927961__main"
-            )
-          );
+          document
+            .getElementById("shopify-section-template--22952857927961__main")
+            .removeChild("couponContainer");
         }
 
         const source = html.getElementById(
