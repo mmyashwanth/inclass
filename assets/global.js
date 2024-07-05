@@ -1412,6 +1412,7 @@ class VariantSelects extends HTMLElement {
         const desstinationDiscountCoupon = document.getElementById("cpnCode");
         if (discountCoupon === null) {
           console.log(discountCoupon);
+          console.log(html);
         } else {
           desstinationDiscountCoupon.textContent = discountCoupon.textContent;
         }
