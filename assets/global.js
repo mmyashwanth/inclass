@@ -1408,11 +1408,14 @@ class VariantSelects extends HTMLElement {
           `price-${this.dataset.section}`
         );
 
+        const couponContainer = html.querySelector(
+          ".discount-coupon-container"
+        );
         const discountCoupon = html.getElementById("cpnCode");
         const desstinationDiscountCoupon = document.getElementById("cpnCode");
         if (discountCoupon === null) {
           console.log(discountCoupon);
-          console.log(html);
+          console.log(couponContainer);
         } else {
           desstinationDiscountCoupon.textContent = discountCoupon.textContent;
         }
