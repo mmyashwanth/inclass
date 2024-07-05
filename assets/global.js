@@ -1418,6 +1418,7 @@ class VariantSelects extends HTMLElement {
         if (discountCoupon) {
           desstinationDiscountCoupon.textContent = discountCoupon.textContent;
         } else {
+          console.log(this.dataset.section);
         }
 
         const source = html.getElementById(
