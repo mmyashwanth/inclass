@@ -1862,3 +1862,11 @@ class pinCodeChecker extends HTMLElement {
 customElements.define("pincode-checker", pinCodeChecker);
 
 // DISCOUNT COUPON
+class discountCoupon extends HTMLElement{
+  constructor(){
+    super()
+  }
+  connectedCallBack()
+}
+
+customElements.define("discount-coupon", discountCoupon)
