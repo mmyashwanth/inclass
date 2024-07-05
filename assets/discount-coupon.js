@@ -1,5 +1,5 @@
-let cpnBtn = this.getElementById("cpnBtn");
-let cpnCode = this.getElementById("cpnCode");
+var cpnBtn = this.getElementById("cpnBtn");
+var cpnCode = this.getElementById("cpnCode");
 console.log(this);
 cpnBtn.onclick = function () {
   navigator.clipboard.writeText(cpnCode.innerHTML);
