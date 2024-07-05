@@ -1869,7 +1869,7 @@ class discountCoupon extends HTMLElement {
   connectedCallback() {
     let cpnBtn = this.getElementById("cpnBtn");
     let cpnCode = this.getElementById("cpnCode");
-
+    console.log(this);
     cpnBtn.onclick = function () {
       navigator.clipboard.writeText(cpnCode.innerHTML);
       cpnBtn.innerHTML = "COPIED";
