@@ -1,6 +1,6 @@
-var cpnBtn = this.getElementById("cpnBtn");
-var cpnCode = this.getElementById("cpnCode");
-console.log(this);
+let cpnBtn = document.getElementById("cpnBtn");
+let cpnCode = document.getElementById("cpnCode");
+
 cpnBtn.onclick = function () {
   navigator.clipboard.writeText(cpnCode.innerHTML);
   cpnBtn.innerHTML = "COPIED";
