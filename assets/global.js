@@ -1413,13 +1413,12 @@ class VariantSelects extends HTMLElement {
         );
         console.log(couponContainer);
         const discountCoupon = html.getElementById("cpnCode");
+
         const desstinationDiscountCoupon = document.getElementById("cpnCode");
-        if (discountCoupon === null) {
-          console.log(discountCoupon);
-          console.log(couponContainer);
-        } else {
-          console.log(html);
+        if (discountCoupon) {
           desstinationDiscountCoupon.textContent = discountCoupon.textContent;
+        } else {
+          console.log(couponContainer);
         }
 
         const source = html.getElementById(
