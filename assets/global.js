@@ -1829,12 +1829,6 @@ class pinCodeChecker extends HTMLElement {
             const postOffices = postOfficesList.join(", ");
             const deliverablePostOffices =
               deliverablePostOfficesList.join(", ");
-            let results;
-            if (PostOffice.length === 1) {
-              results = `Post Office under pincode ${this.pincode} is`;
-            } else {
-              results = `Post Offices under pincode ${this.pincode} are`;
-            }
 
             let deliveryResults;
             if (deliverablePostOfficesList.length >= 1) {
@@ -1845,7 +1839,7 @@ class pinCodeChecker extends HTMLElement {
 
             this.shadowRoot.getElementById(
               "post-offices"
-            ).innerHTML = `${results} ${postOffices}. <br/> ${deliveryResults}`;
+            ).innerHTML = `${deliveryResults}`;
           }
           this.shadowRoot.getElementById("status").textContent = "";
         } else {
