@@ -12,6 +12,11 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "pincode_cNx9xR": {
+          "type": "pincode",
+          "settings": {
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -66,6 +71,7 @@
         }
       },
       "block_order": [
+        "pincode_cNx9xR",
         "vendor",
         "title",
         "price",
