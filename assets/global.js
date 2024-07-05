@@ -1408,7 +1408,7 @@ class VariantSelects extends HTMLElement {
           `price-${this.dataset.section}`
         );
 
-        const couponContainer = html.querySelector(
+        const couponContainer = document.querySelector(
           ".discount-coupon-container"
         );
         console.log(couponContainer);
@@ -1418,8 +1418,6 @@ class VariantSelects extends HTMLElement {
         if (discountCoupon) {
           desstinationDiscountCoupon.textContent = discountCoupon.textContent;
         } else {
-          console.log(html);
-          console.log(couponContainer);
         }
 
         const source = html.getElementById(
