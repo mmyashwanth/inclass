@@ -133,6 +133,8 @@
                   {% if product.selected_or_first_available_variant.metafields.custom.discount_coupon != blank %}
                       {% render 'discount-coupon', product: product  %}
                     {% endif %}
+              {% when 'pincode' %}
+              <pincode-checker></pincode-checker>
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
