@@ -1867,8 +1867,8 @@ class discountCoupon extends HTMLElement {
     super();
   }
   connectedCallback() {
-    var cpnBtn = document.getElementById("cpnBtn");
-    var cpnCode = document.getElementById("cpnCode");
+    let cpnBtn = this.getElementById("cpnBtn");
+    let cpnCode = this.getElementById("cpnCode");
 
     cpnBtn.onclick = function () {
       navigator.clipboard.writeText(cpnCode.innerHTML);
