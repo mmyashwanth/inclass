@@ -1737,7 +1737,7 @@ class PincodeChecker extends HTMLElement {
         }
       }
 
-      if (this.jsonResult.pincodeServiceable.toLowerCase()) {
+      if (this.jsonResult.pincodeServiceable.toLowerCase() == "TRUE") {
         let successHtml = "<ul>";
         successHtml += "<li>Service is available to your location</li>";
 
