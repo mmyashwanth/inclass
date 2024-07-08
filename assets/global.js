@@ -1692,7 +1692,7 @@ class PincodeChecker extends HTMLElement {
       "click",
       this.validatePincode.bind(this)
     );
-    this.pincodeInput.addEventListener("keypress", function (e) {
+    this.pincodeInput.addEventListener("change", function (e) {
       if (e.key < 48 || e.key > 57 || e.target.value.length === 6)
         e.preventDefault();
     });
