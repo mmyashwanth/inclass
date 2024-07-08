@@ -1676,7 +1676,7 @@ class PincodeChecker extends HTMLElement {
     super();
     this.pincodeJson = {};
     this.sheetKey = "10XbYPjRr_LihIvz3kaEOMaUPycnah4__DUqn7dNh2dU";
-    this.apiKey = "10XbYPjRr_LihIvz3kaEOMaUPycnah4__DUqn7dNh2dU";
+    this.apiKey = "AIzaSyAvd1Lrz5M9OeUQ0UX_ilj6r6zkHxObuCw";
     this.pincodeInput = this.querySelector('[name="pincode-input"]');
     this.pincodeSubmitBtn = this.querySelector('[name="pincode-submit"]');
     this.pincodeMessage = this.querySelector('[name="pincode-message"]');
