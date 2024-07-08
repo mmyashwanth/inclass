@@ -1675,9 +1675,8 @@ class PincodeChecker extends HTMLElement {
   constructor() {
     super();
     this.pincodeJson = {};
-    this.sheetName = "";
-    this.sheetKey = "10XbYPjRr_LihIvz3kaEOMaUPycnah4__DUqn7dNh2dU";
-    this.apiKey = "AIzaSyAvd1Lrz5M9OeUQ0UX_ilj6r6zkHxObuCw";
+    this.sheetKey = "1h0kscMJ6SHc6iScepk-jOZPDvfjhc5ffuxV0Sv75cQ4";
+    this.apiKey = "AIzaSyB_QbDtY6TNB2bdZoz4u3y3YDpeuB7BlME";
     this.pincodeInput = this.querySelector('[name="pincode-input"]');
     this.pincodeSubmitBtn = this.querySelector('[name="pincode-submit"]');
     this.pincodeMessage = this.querySelector('[name="pincode-message"]');
@@ -1692,8 +1691,10 @@ class PincodeChecker extends HTMLElement {
       "click",
       this.validatePincode.bind(this)
     );
-    this.pincodeInput.addEventListener("change", function (e) {
-      if (e.key < 48 || e.key > 57 || e.target.value.length === 6)
+    //COSMETICS :: CLEAR INPUT ON CLICK :: ALLOW ONLY NUMBERS
+    this.pincodeInput.addEventListener("click", this.clearInput.bind(this));
+    this.pincodeInput.addEventListener("keypress", function (e) {
+      if (e.which < 48 || e.which > 57 || e.target.value.length === 6)
         e.preventDefault();
     });
   }
@@ -1705,7 +1706,6 @@ class PincodeChecker extends HTMLElement {
           return response.json();
         })
         .then(function (data) {
-          console.log(data);
           let sheetData = JSON.stringify(data.values);
           sessionStorage.setItem("pincodeData", sheetData);
         })
@@ -1764,6 +1764,12 @@ class PincodeChecker extends HTMLElement {
       this.pincodeMessage.classList.add("is-error");
       this.pincodeMessage.classList.remove("is-success", "is-hidden");
     }
+  }
+
+  clearInput() {
+    this.pincodeInput.value = "";
+    this.pincodeMessage.classList.add("is-hidden");
+    this.pincodeMessage.classList.remove("is-success", "is-error");
   }
 }
 
