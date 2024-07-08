@@ -1693,8 +1693,8 @@ class PincodeChecker extends HTMLElement {
     );
     //COSMETICS :: CLEAR INPUT ON CLICK :: ALLOW ONLY NUMBERS
     this.pincodeInput.addEventListener("click", this.clearInput.bind(this));
-    this.pincodeInput.addEventListener("keypress", function (e) {
-      if (e.which < 48 || e.which > 57 || e.target.value.length === 6)
+    this.pincodeInput.addEventListener("change", function (e) {
+      if (e.key < 48 || e.key > 57 || e.target.value.length === 6)
         e.preventDefault();
     });
   }
