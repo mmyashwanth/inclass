@@ -1675,6 +1675,7 @@ class PincodeChecker extends HTMLElement {
   constructor() {
     super();
     this.pincodeJson = {};
+    this.sheetName = "";
     this.sheetKey = "10XbYPjRr_LihIvz3kaEOMaUPycnah4__DUqn7dNh2dU";
     this.apiKey = "AIzaSyAvd1Lrz5M9OeUQ0UX_ilj6r6zkHxObuCw";
     this.pincodeInput = this.querySelector('[name="pincode-input"]');
@@ -1691,8 +1692,6 @@ class PincodeChecker extends HTMLElement {
       "click",
       this.validatePincode.bind(this)
     );
-    //COSMETICS :: CLEAR INPUT ON CLICK :: ALLOW ONLY NUMBERS
-    this.pincodeInput.addEventListener("click", this.clearInput.bind(this));
     this.pincodeInput.addEventListener("keypress", function (e) {
       if (e.which < 48 || e.which > 57 || e.target.value.length === 6)
         e.preventDefault();
@@ -1764,12 +1763,6 @@ class PincodeChecker extends HTMLElement {
       this.pincodeMessage.classList.add("is-error");
       this.pincodeMessage.classList.remove("is-success", "is-hidden");
     }
-  }
-
-  clearInput() {
-    this.pincodeInput.value = "";
-    this.pincodeMessage.classList.add("is-hidden");
-    this.pincodeMessage.classList.remove("is-success", "is-error");
   }
 }
 
