@@ -1707,6 +1707,7 @@ class PincodeChecker extends HTMLElement {
         })
         .then(function (data) {
           let sheetData = JSON.stringify(data.values);
+          console.log(sheetData);
           sessionStorage.setItem("pincodeData", sheetData);
         })
         .catch(function (error) {
