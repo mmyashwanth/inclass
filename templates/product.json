@@ -36,6 +36,11 @@
             "swatch_shape": "circle"
           }
         },
+        "pincode_cNx9xR": {
+          "type": "pincode",
+          "settings": {
+          }
+        },
         "discount_pLheFG": {
           "type": "discount",
           "settings": {
@@ -58,11 +63,6 @@
           "settings": {
           }
         },
-        "pincode_cNx9xR": {
-          "type": "pincode",
-          "settings": {
-          }
-        },
         "share": {
           "type": "share",
           "settings": {
@@ -75,11 +75,11 @@
         "title",
         "price",
         "variant_picker",
+        "pincode_cNx9xR",
         "discount_pLheFG",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "pincode_cNx9xR",
         "share"
       ],
       "settings": {
