@@ -1671,192 +1671,106 @@ class AccountIcon extends HTMLElement {
 
 customElements.define("account-icon", AccountIcon);
 
-// PINCODE CHECKER
-const POSTAL_API = "https://api.postalpincode.in/pincode/";
-
-const pincodeCheckerTemplate = document.createElement("template");
-pincodeCheckerTemplate.innerHTML = `
-<style>
-    :host {
-        display: block;
-        width: 100%;
-        height: 100%;
-        line-height: 1.5;
-    }
-
-    form {
-        width: 100%;
-    }
-
-    form section {
-        width: 100%;
-        display: flex;
-        border: 1px solid #000;
-        border-radius: 0.5rem;
-    }
-
-    form section input, form section button {
-        font: inherit;
-        font-size: 16px;
-        outline: none;
-        border: none;
-        padding: 16px 8px;
-    }
-
-    form section input {
-        background-color: #fff;
-        border-radius: 0.5rem 0 0 0.5rem;
-        flex-grow: 1;
-    }
-
-    form section button {
-        flex-shrink: 0;
-        border-radius: 0 0.5rem 0.5rem 0;
-        cursor: pointer;
-        background-color: #6495ed;
-        border-left: 1px solid #000;
-    }
-
-    form section button:hover {
-        background-color: rgba(100, 148, 237, 0.908);
-    }
-
-    .error-msg{
-        color: red
-    }
-</style>
-<div>
-<form id = 'pincode-form'>
-    <section>
-        <input type="text" placeholder="Enter 6-digit Pincode" id = 'pincode' />
-        <button type = "submit">Check</button> 
-    </section>
-    <p  id = 'errMsg' class = 'error-msg'></p>
-</form>
-<p id = "status"></p>
-<p id = 'post-offices'></p>
-</div>
-`;
-
-class pinCodeChecker extends HTMLElement {
+class PincodeChecker extends HTMLElement {
   constructor() {
     super();
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.appendChild(pincodeCheckerTemplate.content.cloneNode(true));
-    this.pincode = "";
-    this.isPincodeValid = false;
+    this.pincodeJson = {};
+    this.sheetKey = "10XbYPjRr_LihIvz3kaEOMaUPycnah4__DUqn7dNh2dU";
+    this.apiKey = "10XbYPjRr_LihIvz3kaEOMaUPycnah4__DUqn7dNh2dU";
+    this.pincodeInput = this.querySelector('[name="pincode-input"]');
+    this.pincodeSubmitBtn = this.querySelector('[name="pincode-submit"]');
+    this.pincodeMessage = this.querySelector('[name="pincode-message"]');
+    this.sheetUrl =
+      "https://sheets.googleapis.com/v4/spreadsheets/" +
+      this.sheetKey +
+      "/values/Sheet1?key=" +
+      this.apiKey;
+
+    this.getPincodeJson();
+    this.pincodeSubmitBtn.addEventListener(
+      "click",
+      this.validatePincode.bind(this)
+    );
+    //COSMETICS :: CLEAR INPUT ON CLICK :: ALLOW ONLY NUMBERS
+    this.pincodeInput.addEventListener("click", this.clearInput.bind(this));
+    this.pincodeInput.addEventListener("keypress", function (e) {
+      if (e.which < 48 || e.which > 57 || e.target.value.length === 6)
+        e.preventDefault();
+    });
   }
 
-  connectedCallback() {
-    this.shadowRoot
-      .getElementById("pincode-form")
-      .addEventListener("submit", (event) => this.onSubmitFrom(event));
-
-    this.shadowRoot
-      .getElementById("pincode")
-      .addEventListener("input", (event) => this.onChangeInput(event));
-  }
-
-  onSubmitFrom(event) {
-    event.preventDefault();
-    this.shadowRoot.getElementById("post-offices").textContent = "";
-    this.shadowRoot.getElementById("status").textContent = "";
-    this.validatePincode(this.pincode);
-    if (this.isPincodeValid) {
-      this.fetchPincodeDetails();
-    }
-    this.shadowRoot.getElementById("pincode").value = "";
-  }
-
-  onChangeInput(event) {
-    const pincode = event.target.value;
-    this.pincode = pincode;
-    this.shadowRoot.getElementById("pincode").value = pincode;
-    this.validatePincode(pincode);
-  }
-
-  validatePincode(pincode) {
-    const containsAlpha = isNaN(pincode);
-    const isShort = pincode.length < 6;
-    const isLong = pincode.length > 6;
-    const isValid = pincode.length === 6 && !containsAlpha;
-    this.isPincodeValid = isValid;
-
-    if (containsAlpha) {
-      this.shadowRoot.getElementById("errMsg").textContent =
-        "The pincode must comprise only numerical digits";
-      this.shadowRoot.getElementById("pincode").style.backgroundColor =
-        "#fcbacb50";
-    } else {
-      if (isShort || isLong) {
-        this.shadowRoot.getElementById("errMsg").textContent =
-          "The pincode must comprise 6 numerical digits.";
-        this.shadowRoot.getElementById("pincode").style.backgroundColor =
-          "#fcbacb50";
-      } else {
-        this.shadowRoot.getElementById("errMsg").textContent = "";
-        this.shadowRoot.getElementById("pincode").style.backgroundColor =
-          "#fff";
-      }
+  getPincodeJson() {
+    if (sessionStorage.getItem("pincodeData") === null) {
+      fetch(this.sheetUrl)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          let sheetData = JSON.stringify(data.values);
+          sessionStorage.setItem("pincodeData", sheetData);
+        })
+        .catch(function (error) {
+          console.error("Error:", error);
+        });
     }
   }
 
-  async fetchPincodeDetails() {
-    this.shadowRoot.getElementById("status").textContent = "Loading...";
-    const url = `${POSTAL_API}${this.pincode}`;
-    const options = {
-      method: "GET",
-      Headers: {
-        "content-type": "Application/json",
-      },
-    };
-    try {
-      const response = await fetch(url, options);
-      if (response.ok === true) {
-        const fetchedData = await response.json();
-        const data = fetchedData[0];
-        const { Message, Status, PostOffice } = data;
-        if (Status === "Success") {
-          let postOfficesList = [];
-          let deliverablePostOfficesList = [];
-          if (PostOffice.length > 0) {
-            for (let obj of PostOffice) {
-              postOfficesList.push(obj.Name);
-              if (obj.DeliveryStatus === "Delivery") {
-                deliverablePostOfficesList.push(obj.Name);
-              }
-            }
-            const postOffices = postOfficesList.join(", ");
-            const deliverablePostOffices =
-              deliverablePostOfficesList.join(", ");
+  validatePincode() {
+    if (this.pincodeInput.value.length === 6) {
+      this.pincodeJson = JSON.parse(sessionStorage.getItem("pincodeData"));
+      this.jsonResult = {
+        pincodeServiceable: "No",
+        codAvailable: "No",
+        deliveryMessage: "",
+      };
 
-            let deliveryResults;
-            if (deliverablePostOfficesList.length >= 1) {
-              deliveryResults = `Delivery available to ${deliverablePostOffices}.`;
-            } else {
-              deliveryResults = `Delivery available to None.`;
-            }
-
-            this.shadowRoot.getElementById(
-              "post-offices"
-            ).innerHTML = `${deliveryResults}`;
-          }
-          this.shadowRoot.getElementById("status").textContent = "";
-        } else {
-          this.shadowRoot.getElementById(
-            "status"
-          ).textContent = `${Message} for this pincode: ${this.pincode}`;
+      for (let i = 0; i < this.pincodeJson.length; i++) {
+        if (
+          this.pincodeJson[i] &&
+          this.pincodeJson[i][0] == this.pincodeInput.value
+        ) {
+          this.jsonResult.pincodeServiceable = this.pincodeJson[i][1];
+          this.jsonResult.codAvailable = this.pincodeJson[i][2];
+          this.jsonResult.deliveryMessage = this.pincodeJson[i][3];
+          break;
         }
-      } else {
-        const data = await response.json();
-        const { Message } = data[0];
-        this.shadowRoot.getElementById("status").textContent = Message;
       }
-    } catch (e) {
-      this.shadowRoot.getElementById("status").textContent =
-        "Oops! Something went wrong";
+
+      if (this.jsonResult.pincodeServiceable.toLowerCase() == "yes") {
+        let successHtml = "<ul>";
+        successHtml += "<li>Service is available to your location</li>";
+
+        if (this.jsonResult.codAvailable.toLowerCase() == "yes") {
+          successHtml += "<li>COD is available</li>";
+        }
+        if (this.jsonResult.deliveryMessage != "") {
+          successHtml += "<li>" + this.jsonResult.deliveryMessage + "</li>";
+        }
+        successHtml += "</ul>";
+
+        this.pincodeMessage.innerHTML = successHtml;
+        this.pincodeMessage.classList.add("is-success");
+        this.pincodeMessage.classList.remove("is-error", "is-hidden");
+      } else {
+        //IF THE ENTERED PINCODE DOESN'T MATCH WITH THE SHEET PINCODES OR UNSERVICEABLE
+        this.pincodeMessage.innerHTML =
+          "Service is not available to your location. Please try with an alternative pincode!";
+        this.pincodeMessage.classList.add("is-error");
+        this.pincodeMessage.classList.remove("is-success", "is-hidden");
+      }
+    } else {
+      //IF THE PINCODE IS NOT 6 DIGITS
+      this.pincodeMessage.innerHTML = "Please enter a valid 6 digit pincode!!";
+      this.pincodeMessage.classList.add("is-error");
+      this.pincodeMessage.classList.remove("is-success", "is-hidden");
     }
+  }
+
+  clearInput() {
+    this.pincodeInput.value = "";
+    this.pincodeMessage.classList.add("is-hidden");
+    this.pincodeMessage.classList.remove("is-success", "is-error");
   }
 }
 
-customElements.define("pincode-checker", pinCodeChecker);
+customElements.define("pincode-checker", PincodeChecker);
