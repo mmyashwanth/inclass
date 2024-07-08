@@ -1693,7 +1693,7 @@ class PincodeChecker extends HTMLElement {
       this.validatePincode.bind(this)
     );
     this.pincodeInput.addEventListener("keypress", function (e) {
-      if (e.which < 48 || e.which > 57 || e.target.value.length === 6)
+      if (e.key < 48 || e.key > 57 || e.target.value.length === 6)
         e.preventDefault();
     });
   }
@@ -1705,6 +1705,7 @@ class PincodeChecker extends HTMLElement {
           return response.json();
         })
         .then(function (data) {
+          console.log(data);
           let sheetData = JSON.stringify(data.values);
           sessionStorage.setItem("pincodeData", sheetData);
         })
