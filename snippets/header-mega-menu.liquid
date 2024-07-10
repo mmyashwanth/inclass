@@ -68,10 +68,10 @@
                   {%- endfor -%}
                 </ul>
                 <ul>
-                  {% for image in imageBlocks %}
-                    <li>
-                      {{ image }}
-                    </li>
+                  {% for block in imageBlocks %}
+                    {% if  block.type == "image_picker"%}
+                      {{ block }}
+                      {%  endif %}
                   {% endfor %}
                 </ul>
               </div>
