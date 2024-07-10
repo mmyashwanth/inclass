@@ -70,8 +70,9 @@
                 <ul>
                   {% for block in blocks %}
                     {% if  block.type == "image_picker"%}
-                      {{ block }}
+                      <img src = "{{  }}" alt = '' height = "" width = ""/>
                   {%  else if block.type == "image_url" %}
+                      {{ block }}
                       {%  endif %}
                   {% endfor %}
                 </ul>
