@@ -72,7 +72,9 @@
                     {% if  block.type == "image_picker"%}
                       {{ block.settings.image_picker }}
                       {% assign img_link_title = block.settings.link_title | downcase %}
+{{ img_link_title }}
                       {%  assign link_title = link.title | downcase %}
+                      {{ link_title }}
                         {%  if link_title == img_link_title |  %}
                          <img src = "{{  block.settings.image_picker | image_url }}" alt = '' height = "" width = ""/>
                           {%  endif %}
