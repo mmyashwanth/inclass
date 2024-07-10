@@ -53,11 +53,20 @@
             "image_url": "",
             "link_title": "kanchipuram"
           }
+        },
+        "image_picker_Wdqppm": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/Rectangle41.png",
+            "image_url": "",
+            "link_title": "fabric"
+          }
         }
       },
       "block_order": [
         "image_picker_JUQxad",
-        "image_picker_6TdHpm"
+        "image_picker_6TdHpm",
+        "image_picker_Wdqppm"
       ],
       "settings": {
         "logo_position": "middle-left",
