@@ -68,11 +68,14 @@
                   {%- endfor -%}
                 </ul>
                 <ul>
-{{ link.title }}
                   {% for block in blocks %}
                     {% if  block.type == "image_picker"%}
                       {{ block.settings.image_picker }}
-                      <img src = "{{  block.settings.image_picker | image_url }}" alt = '' height = "" width = ""/>
+                      {% assign img_link_title = block.settings.link_title | downcase %}
+                      {%  assign link_title = link.title | downcase %}
+                        {%  if link_title == img_link_title |  %}
+                         <img src = "{{  block.settings.image_picker | image_url }}" alt = '' height = "" width = ""/>
+                          {%  endif %}
                       {%  endif %}
                   {% endfor %}
                 </ul>
