@@ -41,13 +41,17 @@
         "image_picker_JUQxad": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/i1--kanchipuram--nav.png"
+            "image_picker": "shopify:\/\/shop_images\/i1--kanchipuram--nav.png",
+            "image_url": "",
+            "link_title": "kanchipuram"
           }
         },
         "image_picker_6TdHpm": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/i2--kanchipuram--nav.png"
+            "image_picker": "shopify:\/\/shop_images\/i2--kanchipuram--nav.png",
+            "image_url": "",
+            "link_title": ""
           }
         }
       },
