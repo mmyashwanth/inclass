@@ -68,6 +68,7 @@
                   {%- endfor -%}
                 </ul>
                 <ul>
+{{ link.title }}
                   {% for block in blocks %}
                     {% if  block.type == "image_picker"%}
                       {{ block.settings.image_picker }}
