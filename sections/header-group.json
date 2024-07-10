@@ -37,6 +37,24 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "image_picker_JUQxad": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/i1--kanchipuram--nav.png"
+          }
+        },
+        "image_picker_6TdHpm": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/i2--kanchipuram--nav.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_JUQxad",
+        "image_picker_6TdHpm"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "mega-menu",
