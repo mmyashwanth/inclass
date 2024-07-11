@@ -466,6 +466,7 @@
                     </div>
                 {%  endfor %}
                 </div>
+              {%  when 'line-items' %}
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
@@ -770,6 +771,11 @@
     {
       "type": "@app"
     },
+{
+  "type": "line-items",
+  "name" : "Line items",
+  "limit": 1
+},
 {
   "type": "addons",
   "name": "Addon products",
