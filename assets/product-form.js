@@ -66,7 +66,7 @@ if (!customElements.get("product-form")) {
           "[name='properties[Engraving]']"
         ).value;
 
-        console.log(engraving.value);
+        console.log(engraving);
 
         let modifiedFormData = JSON.stringify({
           items: [
