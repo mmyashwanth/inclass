@@ -70,7 +70,7 @@ if (!customElements.get("product-form")) {
 
         config.body = formData;
 
-        fetch(`${routes.cart_add_url}`, config)
+        fetch("/cart/add.js", config)
           .then((response) => response.json())
           .then((response) => {
             if (response.status) {
