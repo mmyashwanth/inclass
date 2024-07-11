@@ -34,8 +34,8 @@ if (!customElements.get("product-form")) {
         addonProducts.forEach((addonProduct) => {
           if (addonProduct.checked) {
                 const data = {
-  'id': addonProduct.value,
-  'quantity' 1,
+                'id': addonProduct.value,
+                'quantity' 1
             };
             selectedAddonProducts.push(data);
           }
