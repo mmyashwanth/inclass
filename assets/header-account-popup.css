@@ -5,7 +5,6 @@
 
 .header-account-popup--wrapper {
   position: absolute;
-  width: fit-content;
   background-color: red;
   display: none;
 }
