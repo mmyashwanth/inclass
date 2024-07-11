@@ -459,9 +459,9 @@
                 <div>
                   {%  for addonProduct in product.metafields.custom.addons.value %}
                     <div>
-                      {{ addonProduct.selected_or_first_avaialbale_variant.id  }}
-                      <input id = "{{ addonProduct.selected_or_first_avaialbale_variant.id  }}" type = "checkbox" value = "{{ addonProduct.selected_or_first_avaialbale_variant.id }}"/>
-                      <label for = "{{ addonProduct.selected_or_first_avaialbale_variant.id  }}">
+                      {{ addonProduct.selected_or_first_available_variant.id  }}
+                      <input id = "{{ addonProduct.selected_or_first_available_variant.id  }}" type = "checkbox" value = "{{ addonProduct.selected_or_first_available_variant.id }}"/>
+                      <label for = "{{ addonProduct.v.id  }}">
                       {{ addonProduct.title }}
                       </label>
                     </div>
