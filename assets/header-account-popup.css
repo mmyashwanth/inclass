@@ -22,5 +22,5 @@
 }
 
 .header-account-popup:hover .header-account-popup--wrapper {
-  color: red;
+  background-color: red;
 }
