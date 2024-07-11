@@ -32,10 +32,9 @@ if (!customElements.get("product-form")) {
         let selectedAddonProducts = [];
         const addonProducts = document.querySelectorAll(".main-product-addons");
         addonProducts.forEach((addonProduct) => {
-          console.log(addonProduct.value);
           if (addonProduct.checked) {
             const data = {
-              id: addonProducts.value,
+              id: addonProduct.value,
               quantity: 1,
             };
             selectedAddonProducts.push(data);
