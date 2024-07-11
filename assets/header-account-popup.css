@@ -6,6 +6,7 @@
 .header-account-popup--wrapper {
   position: absolute;
   background-color: red;
+  border: 1px solid #333;
   display: none;
 }
 
