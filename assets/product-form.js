@@ -75,7 +75,7 @@ if (!customElements.get("product-form")) {
             .map((section) => section.id),
         });
 
-        fetch(`${routes.cart_add_url}`, {
+        fetch(window.Shopify.routes.root + "cart/add.js", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
