@@ -12,6 +12,11 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "addons_XNHyVj": {
+          "type": "addons",
+          "settings": {
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -68,14 +73,10 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "addons_XNHyVj": {
-          "type": "addons",
-          "settings": {
-          }
         }
       },
       "block_order": [
+        "addons_XNHyVj",
         "vendor",
         "title",
         "price",
@@ -85,8 +86,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share",
-        "addons_XNHyVj"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
