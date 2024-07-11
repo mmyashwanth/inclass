@@ -36,6 +36,11 @@
             "swatch_shape": "circle"
           }
         },
+        "addons_LT46Tc": {
+          "type": "addons",
+          "settings": {
+          }
+        },
         "pincode_cNx9xR": {
           "type": "pincode",
           "settings": {
@@ -75,6 +80,7 @@
         "title",
         "price",
         "variant_picker",
+        "addons_LT46Tc",
         "pincode_cNx9xR",
         "discount_pLheFG",
         "quantity_selector",
