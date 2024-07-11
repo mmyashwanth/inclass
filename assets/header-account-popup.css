@@ -17,6 +17,6 @@
   color: white;
 }
 
-.header-account-popup--icon:hover .header-account-popup--wrapper {
+.header-account-popup:hover .header-account-popup--wrapper {
   color: red;
 }
