@@ -17,6 +17,11 @@
           "settings": {
           }
         },
+        "line_items_9biyT4": {
+          "type": "line-items",
+          "settings": {
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -73,15 +78,11 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "line_items_9biyT4": {
-          "type": "line-items",
-          "settings": {
-          }
         }
       },
       "block_order": [
         "addons_XNHyVj",
+        "line_items_9biyT4",
         "vendor",
         "title",
         "price",
@@ -91,8 +92,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share",
-        "line_items_9biyT4"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
