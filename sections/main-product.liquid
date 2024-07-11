@@ -456,7 +456,16 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
               {%- when "addons" -%}
-                <div>Addons</div>
+                <div>
+                  {%  for addonProduct in product.metafields.custom.addon.value %}
+                    <div>
+                      <input id = "{{ addonProduct.selected_or_first_avaialbale_variant.id  }}" type = 'checkbox' value = "{{ addonProduct.selected_or_first_avaialbale_variant.id }}"/>
+                      <label for = "{{ addonProduct.selected_or_first_avaialbale_variant.id  }}">
+                      {{ addonProduct.title }}
+                      </label>
+                    </div>
+                {%  endfor %}
+                </div>
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
