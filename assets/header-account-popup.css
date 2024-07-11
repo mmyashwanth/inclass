@@ -13,5 +13,5 @@
 }
 
 .icon.icon-account:hover .header-account-popup--wrapper {
-  display: none;
+  background-color: blue;
 }
