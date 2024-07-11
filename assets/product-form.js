@@ -57,9 +57,9 @@ if (!customElements.get("product-form")) {
           }
         });
 
-        const addonFormData = {
-          items: selectedAddonProducts,
-        };
+        // const addonFormData = {
+        //   items: selectedAddonProducts,
+        // };
         console.log(selectedAddonProducts);
 
         let modifiedFormData = JSON.stringify({
