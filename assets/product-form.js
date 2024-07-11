@@ -19,34 +19,6 @@ if (!customElements.get("product-form")) {
         this.hideErrors = this.dataset.hideErrors === "true";
       }
 
-      addLineItems() {
-        let selectedAddonProducts = [];
-        const addonProducts = document.querySelectorAll(".main-product-addons");
-        addonProducts.forEach((addonProduct) => {
-          if (addonProduct.checked) {
-            const data = {
-              id: addonProduct.value,
-              quantity: 1,
-            };
-            selectedAddonProducts.push(data);
-          }
-        });
-
-        const addonFormData = {
-          items: selectedAddonProducts,
-        };
-
-        console.log(JSON.stringify(addonFormData));
-        console.log(selectedAddonProducts);
-        fetch("/cart/add.js", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(addonFormData),
-        });
-      }
-
       onSubmitHandler(evt) {
         evt.preventDefault();
         if (this.submitButton.getAttribute("aria-disabled") === "true") return;
@@ -74,8 +46,6 @@ if (!customElements.get("product-form")) {
         }
 
         config.body = formData;
-        const entries = Array.from(formData.entries());
-        console.log(entries);
 
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
