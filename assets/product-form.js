@@ -29,9 +29,19 @@ if (!customElements.get("product-form")) {
         this.submitButton.classList.add("loading");
         this.querySelector(".loading__spinner").classList.remove("hidden");
 
+        let selectedAddonProducts = []
         const addonProducts = document.querySelectorAll(".main-product-addons");
-        addonProducts.forEach((addonProduct) => console.log(addonProduct));
+        addonProducts.forEach((addonProduct) =>
+          if (addonProduct.checked){
+            const data = {
+              id : addonProducts.value,
+              quantity : 1
+            }
+          selectedAddonProducts.push(data)
+          }
+        );
 
+        console.log(selectedAddonProducts)
         const config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
         delete config.headers["Content-Type"];
