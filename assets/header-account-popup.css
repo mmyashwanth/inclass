@@ -13,5 +13,5 @@
 }
 
 .header-account-popup--icon:hover .header-account-popup--wrapper {
-  background-color: blue;
+  color: red;
 }
