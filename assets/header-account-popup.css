@@ -1,3 +1,7 @@
 .header-account-popup--wrapper {
   background-color: red;
 }
+
+.header-account-popup--wrapper button {
+  background-color: transparent;
+}
