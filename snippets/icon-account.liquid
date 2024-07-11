@@ -13,11 +13,17 @@
 </svg>
 
 <div class="header-account-popup--wrapper">
-  <button>
+  {%  if shop.customer_accounts_enabled %}
+    <button>
     <a href="/account/login">sign In</a>
   </button>
   <button>
     <a href="/account/register"> Create Account</a>
   </button>
+{% else %}
+<button>
+  <a>Logout</a>
+</button>
+  {%  endif %}
 </div>
 </div>
