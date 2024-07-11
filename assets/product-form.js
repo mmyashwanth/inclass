@@ -68,7 +68,7 @@ if (!customElements.get("product-form")) {
               id: this.form.querySelector(".product-variant-id").value,
               quantity: 1,
               properties: {
-                Engraving: this.closestinfo.querySelector(
+                Engraving: this.closestinfo.querySelectorAll(
                   "[name = 'properties[Engraving]']"
                 ),
               },
