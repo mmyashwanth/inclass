@@ -19,16 +19,7 @@ if (!customElements.get("product-form")) {
         this.hideErrors = this.dataset.hideErrors === "true";
       }
 
-      onSubmitHandler(evt) {
-        evt.preventDefault();
-        if (this.submitButton.getAttribute("aria-disabled") === "true") return;
-
-        this.handleErrorMessage();
-
-        this.submitButton.setAttribute("aria-disabled", true);
-        this.submitButton.classList.add("loading");
-        this.querySelector(".loading__spinner").classList.remove("hidden");
-
+      addLineItems() {
         let selectedAddonProducts = [];
         const addonProducts = document.querySelectorAll(".main-product-addons");
         addonProducts.forEach((addonProduct) => {
@@ -44,6 +35,7 @@ if (!customElements.get("product-form")) {
         const addonFormData = {
           items: selectedAddonProducts,
         };
+
         console.log(JSON.stringify(addonFormData));
         console.log(selectedAddonProducts);
         fetch(`${routes.cart_add_url}`, {
@@ -53,6 +45,17 @@ if (!customElements.get("product-form")) {
           },
           body: JSON.stringify(addonFormData),
         });
+      }
+
+      onSubmitHandler(evt) {
+        evt.preventDefault();
+        if (this.submitButton.getAttribute("aria-disabled") === "true") return;
+
+        this.handleErrorMessage();
+
+        this.submitButton.setAttribute("aria-disabled", true);
+        this.submitButton.classList.add("loading");
+        this.querySelector(".loading__spinner").classList.remove("hidden");
 
         const config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
