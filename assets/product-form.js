@@ -38,7 +38,7 @@ if (!customElements.get("product-form")) {
 
         console.log(JSON.stringify(addonFormData));
         console.log(selectedAddonProducts);
-        fetch(`${routes.cart_add_url}`, {
+        fetch("/cart/add.js", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
