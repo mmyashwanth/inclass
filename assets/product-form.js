@@ -62,9 +62,10 @@ if (!customElements.get("product-form")) {
         // };
         console.log(selectedAddonProducts);
 
-        const engraving = document.querySelector(
+        let engraving = document.querySelector(
           "[name='properties[Engraving]']"
         );
+
         console.log(engraving);
 
         let modifiedFormData = JSON.stringify({
