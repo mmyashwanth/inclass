@@ -33,9 +33,9 @@ if (!customElements.get("product-form")) {
         const addonProducts = document.querySelectorAll(".main-product-addons");
         addonProducts.forEach((addonProduct) => {
           if (addonProduct.checked) {
-                const data = {
-                'id': addonProduct.value,
-                'quantity' 1
+            const data = {
+              id: addonProduct.value,
+              quantity: 1,
             };
             selectedAddonProducts.push(data);
           }
@@ -44,7 +44,7 @@ if (!customElements.get("product-form")) {
         const addonFormData = {
           items: selectedAddonProducts,
         };
-        console.log(addonFormData);
+        console.log(JSON.stringify(addonFormData));
         console.log(selectedAddonProducts);
         fetch("/cart/add.js", {
           method: "POST",
