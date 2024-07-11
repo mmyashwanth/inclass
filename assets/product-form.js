@@ -72,6 +72,7 @@ if (!customElements.get("product-form")) {
             {
               id: this.form.querySelector(".product-variant-id").value,
               quantity: 1,
+              properties: { engraving: engraving },
             },
             ...selectedAddonProducts,
           ],
