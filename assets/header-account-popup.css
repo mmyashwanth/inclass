@@ -4,6 +4,7 @@
 }
 
 .header-account-popup--wrapper {
+  position: absolute;
   background-color: red;
   display: none;
 }
