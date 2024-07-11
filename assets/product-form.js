@@ -30,7 +30,9 @@ if (!customElements.get("product-form")) {
         this.querySelector(".loading__spinner").classList.remove("hidden");
 
         const addonProducts = document.querySelectorAll(".main-product-addons");
-        addonProducts.forEach((addonProduct) => console.log(addonProduct));
+        addonProducts.forEach((addonProduct) =>
+          console.log(addonProduct.selected)
+        );
 
         const config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
