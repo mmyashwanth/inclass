@@ -12,6 +12,6 @@
   text-decoration: none;
 }
 
-svg.icon.icon-account:hover .header-account-popup--wrapper {
+.header-account-popup--icon:hover .header-account-popup--wrapper {
   background-color: blue;
 }
