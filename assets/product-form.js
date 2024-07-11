@@ -57,7 +57,8 @@ if (!customElements.get("product-form")) {
           this.cart.setActiveElement(document.activeElement);
         }
 
-        console.log(formData);
+        const entries = Array.from(formData.entries());
+        console.log(entries);
         config.body = formData;
 
         fetch(`${routes.cart_add_url}`, config)
