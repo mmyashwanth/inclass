@@ -138,6 +138,18 @@
     <button>
       {{ 'customer.register.submit' | t }}
     </button>
+
+<fieldset>
+  <legend>Customer type</legend>
+  <p>
+      <input name = 'customer[tags]' id = 'b2b' type = 'radio' value = "b2b" />
+      <label for = 'b2b'>B2B</label>
+  </p>
+  <p>
+    <input name = 'customer[tags]' id = 'retail' type = 'radio' vlaue = 'retail'/>
+  <label for = 'retail' >Retail</label>
+  </p>
+</fieldset>
   {%- endform -%}
 </div>
 
