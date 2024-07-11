@@ -36,11 +36,6 @@
             "swatch_shape": "circle"
           }
         },
-        "addons_LT46Tc": {
-          "type": "addons",
-          "settings": {
-          }
-        },
         "pincode_cNx9xR": {
           "type": "pincode",
           "settings": {
@@ -73,6 +68,11 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "addons_XNHyVj": {
+          "type": "addons",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -80,13 +80,13 @@
         "title",
         "price",
         "variant_picker",
-        "addons_LT46Tc",
         "pincode_cNx9xR",
         "discount_pLheFG",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "addons_XNHyVj"
       ],
       "settings": {
         "enable_sticky_info": true,
