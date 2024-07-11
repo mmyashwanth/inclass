@@ -17,6 +17,10 @@
   color: white;
 }
 
+.header-account-popup:hover {
+  background-color: blue;
+}
+
 .header-account-popup:hover .header-account-popup--wrapper {
   color: red;
 }
