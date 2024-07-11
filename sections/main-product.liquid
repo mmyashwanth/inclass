@@ -130,11 +130,11 @@
                   {%- endform -%}
                 </div>
               {%- when 'discount' -%}
-                  {% if product.selected_or_first_available_variant.metafields.custom.discount_coupon != blank %}
-                      {% render 'discount-coupon', product: product  %}
-                    {% endif %}
+                {% if product.selected_or_first_available_variant.metafields.custom.discount_coupon != blank %}
+                  {% render 'discount-coupon', product: product %}
+                {% endif %}
               {% when 'pincode' %}
-                  {%  render 'custom-pincode-checker' %}
+                {% render 'custom-pincode-checker' %}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -455,18 +455,25 @@
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                   render 'share-button', block: block, share_link: share_url
                 %}
-              {%- when "addons" -%}
+              {%- when 'addons' -%}
                 <div>
-                  {%  for addonProduct in product.metafields.custom.addons.value %}
+                  {% for addonProduct in product.metafields.custom.addons.value %}
                     <div>
-                      <input class = 'main-product-addons' id = "{{ addonProduct.selected_or_first_available_variant.id  }}" type = "checkbox" value = "{{ addonProduct.selected_or_first_available_variant.id }}"/>
-                      <label for = "{{ addonProduct.selected_or_first_available_variant.id  }}">
-                      {{ addonProduct.title }}
+                      <input
+                        class="main-product-addons"
+                        id="{{ addonProduct.selected_or_first_available_variant.id  }}"
+                        type="checkbox"
+                        value="{{ addonProduct.selected_or_first_available_variant.id }}"
+                      >
+                      <label for="{{ addonProduct.selected_or_first_available_variant.id  }}">
+                        {{ addonProduct.title }}
                       </label>
                     </div>
-                {%  endfor %}
+                  {% endfor %}
                 </div>
-              {%  when 'line-items' %}
+              {% when 'line-items' %}
+                <label for="engravingText">Engraving</label>
+                    <input type="text" id="engravingText" name="properties[Engraving]">
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
@@ -577,9 +584,9 @@
                                   -%}
                                     <li>
                                       {%- if block.settings.enable_quick_add -%}
-                                        {% assign quick_add = "standard" %}
+                                        {% assign quick_add = 'standard' %}
                                       {%- else -%}
-                                        {% assign quick_add = "none" %}
+                                        {% assign quick_add = 'none' %}
                                       {%- endif -%}
                                       {% render 'card-product',
                                         card_product: product,
