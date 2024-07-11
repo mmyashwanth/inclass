@@ -28,26 +28,7 @@ if (!customElements.get("product-form")) {
         this.submitButton.setAttribute("aria-disabled", true);
         this.submitButton.classList.add("loading");
         this.querySelector(".loading__spinner").classList.remove("hidden");
-
-        let selectedAddonProducts = [];
-        const addonProducts = document.querySelectorAll(".main-product-addons");
-        addonProducts.forEach((addonProduct) => {
-          if (addonProduct.checked) {
-            const data = {
-              id: addonProduct.value,
-              quantity: 1,
-            };
-            selectedAddonProducts.push(data);
-          }
-        });
-
-        const addonFormData = {
-          items: selectedAddonProducts,
-        };
-
-        console.log(JSON.stringify(addonFormData));
-        console.log(selectedAddonProducts);
-
+       
         const config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
         delete config.headers["Content-Type"];
@@ -64,7 +45,38 @@ if (!customElements.get("product-form")) {
 
         config.body = formData;
 
-        fetch(`${routes.cart_add_url}`, config)
+        let selectedAddonProducts = [];
+        const addonProducts = document.querySelectorAll(".main-product-addons");
+        addonProducts.forEach((addonProduct) => {
+          if (addonProduct.checked) {
+            const data = {
+              id: addonProduct.value,
+              quantity: 1,
+            };
+            selectedAddonProducts.push(data);
+          }
+        });
+
+        const addonFormData = {
+          items: selectedAddonProducts,
+        };
+        console.log(selectedAddonProducts);
+        
+let modifiedFormData = JSON.stringify({
+	items: [{ id: this.form.querySelector('.product-variant-id').value, quantity: 1 }, ...selectedAddonProducts],
+	sections: this.cart.getSectionsToRender().map((section) => section.id),
+});
+
+
+        fetch(`${routes.cart_add_url}`,      
+         {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(modifiedFormData)
+})
+             )
           .then((response) => response.json())
           .then((response) => {
             if (response.status) {
