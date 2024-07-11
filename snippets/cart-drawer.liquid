@@ -159,7 +159,7 @@
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
-                          {{ item.properties }}
+                          {{ item.properties.engraving }}
                           {%  if item.properties.engraving %}
                           <p>{{ item.properties.engraving }}</p>
                           {%  endif %}
