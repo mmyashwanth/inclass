@@ -23,13 +23,14 @@ if (!customElements.get("product-form")) {
         evt.preventDefault();
         if (this.submitButton.getAttribute("aria-disabled") === "true") return;
 
-        console.log(this.form);
-
         this.handleErrorMessage();
 
         this.submitButton.setAttribute("aria-disabled", true);
         this.submitButton.classList.add("loading");
         this.querySelector(".loading__spinner").classList.remove("hidden");
+
+        const addonProducts = document.querySelectorAll(".main-product-addons");
+        console.log(addonProducts);
 
         const config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
