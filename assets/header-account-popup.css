@@ -4,6 +4,7 @@
 
 .header-account-popup--wrapper {
   background-color: red;
+  display: none;
 }
 
 .header-account-popup--wrapper button {
@@ -22,5 +23,5 @@
 }
 
 .header-account-popup:hover .header-account-popup--wrapper {
-  background-color: red;
+  display: block;
 }
