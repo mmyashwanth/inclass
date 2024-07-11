@@ -80,7 +80,7 @@ if (!customElements.get("product-form")) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(modifiedFormData),
+          body: modifiedFormData,
         })
           .then((response) => response.json())
           .then((response) => {
