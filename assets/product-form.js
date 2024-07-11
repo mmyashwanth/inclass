@@ -64,7 +64,7 @@ if (!customElements.get("product-form")) {
 
         let engraving = document.querySelector(
           "[name='properties[Engraving]']"
-        );
+        ).value;
 
         console.log(engraving.value);
 
