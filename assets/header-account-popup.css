@@ -7,3 +7,7 @@
   border: none;
   width: 100%;
 }
+
+.header-account-popup--wrapper button a {
+  text-decoration: none;
+}
