@@ -28,7 +28,7 @@ if (!customElements.get("product-form")) {
         this.submitButton.setAttribute("aria-disabled", true);
         this.submitButton.classList.add("loading");
         this.querySelector(".loading__spinner").classList.remove("hidden");
-       
+
         const config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
         delete config.headers["Content-Type"];
@@ -61,22 +61,27 @@ if (!customElements.get("product-form")) {
           items: selectedAddonProducts,
         };
         console.log(selectedAddonProducts);
-        
-let modifiedFormData = JSON.stringify({
-	items: [{ id: this.form.querySelector('.product-variant-id').value, quantity: 1 }, ...selectedAddonProducts],
-	sections: this.cart.getSectionsToRender().map((section) => section.id),
-});
 
+        let modifiedFormData = JSON.stringify({
+          items: [
+            {
+              id: this.form.querySelector(".product-variant-id").value,
+              quantity: 1,
+            },
+            ...selectedAddonProducts,
+          ],
+          sections: this.cart
+            .getSectionsToRender()
+            .map((section) => section.id),
+        });
 
-        fetch(`${routes.cart_add_url}`,      
-         {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(modifiedFormData)
-})
-             )
+        fetch(`${routes.cart_add_url}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(modifiedFormData),
+        })
           .then((response) => response.json())
           .then((response) => {
             if (response.status) {
