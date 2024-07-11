@@ -46,6 +46,13 @@ if (!customElements.get("product-form")) {
         };
         console.log(addonFormData);
         console.log(selectedAddonProducts);
+        fetch(window.Shopify.routes.root + "cart/add.js", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(addonFormData),
+        });
 
         const config = fetchConfig("javascript");
         config.headers["X-Requested-With"] = "XMLHttpRequest";
