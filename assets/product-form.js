@@ -52,6 +52,11 @@ if (!customElements.get("product-form")) {
             const data = {
               id: addonProduct.value,
               quantity: 1,
+              properties: {
+                _associated_product: this.form.querySelector(
+                  ".product-variant-id"
+                ).value,
+              },
             };
             selectedAddonProducts.push(data);
           }
