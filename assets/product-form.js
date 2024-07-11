@@ -56,6 +56,8 @@ if (!customElements.get("product-form")) {
           formData.append("sections_url", window.location.pathname);
           this.cart.setActiveElement(document.activeElement);
         }
+
+        console.log(formData);
         config.body = formData;
 
         fetch(`${routes.cart_add_url}`, config)
