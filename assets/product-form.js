@@ -46,7 +46,7 @@ if (!customElements.get("product-form")) {
         };
         console.log(addonFormData);
         console.log(selectedAddonProducts);
-        fetch(window.Shopify.routes.root + "cart/add.js", {
+        fetch(`${routes.cart_add_url}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
