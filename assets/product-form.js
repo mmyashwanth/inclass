@@ -69,6 +69,8 @@ if (!customElements.get("product-form")) {
         }
 
         config.body = formData;
+        const entries = Array.from(formData.entries());
+        console.log(entries);
 
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
