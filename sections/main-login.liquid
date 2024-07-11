@@ -1,5 +1,5 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
-
+{{ 'sign-in-with-google-btn.css' | asset_url | stylesheet_tag}}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -175,6 +175,11 @@
       {%- endform -%}
     </div>
   {%- endif -%}
+
+
+<button type="button" class="login-with-google-btn" >
+  Sign in with Google
+</button>
 </div>
 
 {% schema %}
