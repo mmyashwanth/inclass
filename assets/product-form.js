@@ -41,6 +41,10 @@ if (!customElements.get("product-form")) {
           }
         });
 
+        const addonFormData = {
+          items: selectedAddonProducts,
+        };
+        console.log(addonFormData);
         console.log(selectedAddonProducts);
 
         const config = fetchConfig("javascript");
@@ -57,8 +61,6 @@ if (!customElements.get("product-form")) {
           this.cart.setActiveElement(document.activeElement);
         }
 
-        const entries = Array.from(formData.entries());
-        console.log(entries);
         config.body = formData;
 
         fetch(`${routes.cart_add_url}`, config)
