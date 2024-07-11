@@ -33,9 +33,9 @@ if (!customElements.get("product-form")) {
         const addonProducts = document.querySelectorAll(".main-product-addons");
         addonProducts.forEach((addonProduct) => {
           if (addonProduct.checked) {
-            const data = {
-              id: addonProduct.value,
-              quantity: 1,
+                const data = {
+  'id': addonProduct.value,
+  'quantity' 1,
             };
             selectedAddonProducts.push(data);
           }
@@ -46,7 +46,7 @@ if (!customElements.get("product-form")) {
         };
         console.log(addonFormData);
         console.log(selectedAddonProducts);
-        fetch(`${routes.cart_add_url}`, {
+        fetch("/cart/add.js", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -70,7 +70,7 @@ if (!customElements.get("product-form")) {
 
         config.body = formData;
 
-        fetch("/cart/add.js", config)
+        fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {
             if (response.status) {
