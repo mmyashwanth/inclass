@@ -135,11 +135,7 @@
         {{ form.errors.messages.password }}.
       </span>
     {%- endif -%}
-    <button>
-      {{ 'customer.register.submit' | t }}
-    </button>
-
-<fieldset>
+            <fieldset>
   <legend>Customer type</legend>
   <p>
       <input name = 'customer[tags]' id = 'b2b' type = 'radio' value = "b2b" />
@@ -150,6 +146,9 @@
   <label for = 'retail' >Retail</label>
   </p>
 </fieldset>
+    <button>
+      {{ 'customer.register.submit' | t }}
+    </button>
   {%- endform -%}
 </div>
 
