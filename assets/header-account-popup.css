@@ -5,7 +5,7 @@
 
 .header-account-popup--wrapper {
   position: absolute;
-  background-color: red;
+  background-color: #fff;
   border: 1px solid #333;
   border-radius: 8px;
   display: none;
