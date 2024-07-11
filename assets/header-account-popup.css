@@ -19,7 +19,7 @@
 
 .header-account-popup--wrapper button a {
   text-decoration: none;
-  color: white;
+  color: #000;
 }
 
 .header-account-popup:hover {
