@@ -62,7 +62,7 @@ if (!customElements.get("product-form")) {
         // };
         console.log(selectedAddonProducts);
 
-        const engraving = this.closestinfo.querySelector(
+        const engraving = this.closest.querySelector(
           "[name='properties[Engraving]']"
         );
         console.log(engraving);
